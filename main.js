@@ -47,3 +47,31 @@ var woodysRoundup = bigWoodArr.map(function(item) {
 }).join(` is made of wood.\n`)
 
 document.querySelector("#answer4").innerHTML = woodysRoundup
+
+// answer 5
+var lotsOfMats = items.filter(function(item) {
+	if (item.materials.length >= 8) {
+		return true
+	} else {
+		return false
+	}
+})
+
+var stringOfAll = ''
+
+lotsOfMats.forEach(function(item) {
+	stringOfAll += `${item.title} has ${item.materials.length} materials\n${item.materials}\n`
+})
+
+document.querySelector("#answer5").innerHTML = stringOfAll
+
+// answer 6
+var iMadeThis = items.filter(function(item){
+	if (item.who_made === "i_did") {
+		return true
+	} else {
+		return false
+	}
+})
+
+document.querySelector("#answer6").innerHTML = `${iMadeThis.length} were made by their sellers.`
